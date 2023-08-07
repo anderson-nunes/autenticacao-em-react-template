@@ -82,7 +82,7 @@ Clique [aqui](https://documenter.getpostman.com/view/24422099/2s93Xu1QR9#6aa45f8
 
 - Em `useRequestData.js`, está acontecendo um erro:
 
-  ![Alt text](image.png)
+  !Falha na autenticação, Token expirado ou não inserido
 
 - O código em questão atualmente é esse:
 
@@ -117,8 +117,6 @@ Clique [aqui](https://documenter.getpostman.com/view/24422099/2s93Xu1QR9#6aa45f8
   ```
 
 - É preciso passar o `headers` para o `useRequestData` que é o token:
-
-  ![Alt text](image-1.png)
 
 - Em `Feed.js`:
 

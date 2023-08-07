@@ -3,16 +3,28 @@ import CardPost from '../../components/CardPost/CardPost'
 import CriarPost from '../../components/CriarPost/CriarPost'
 import useRequestData from '../../hooks/useRequestData'
 import { FeedContainer } from './styled'
+import { useProtectedPage } from '../../hooks/useProtecdPage'
+import { Container } from '@chakra-ui/react'
 
 
 export default function Feed() {
-  const [posts] = useRequestData([], '/posts')
+
+  useProtectedPage()
+
+  const tokenLogado = localStorage.getItem('token')
+
+  const config = {
+    headers: {
+      Authorization: tokenLogado
+    }
+  }
+
+  const [posts] = useRequestData([], '/posts', config)
 
   return (
     <FeedContainer>
-      <h1>Feed</h1>
       <section>
-        <h3>Novo post</h3>
+        <h1>Novo post</h1>
         <CriarPost />
       </section>
       {

@@ -14,7 +14,6 @@ export default function Home() {
         <Link onClick={() => irParaLogin(navigate)}>Login</Link>
         <Link onClick={() => irParaCadastro(navigate)}>Cadastro</Link>
       </ContainerButton>
-
     </ContainerLabeddit>
   )
 }

@@ -10,7 +10,7 @@ import Signup from '../pages/Signup/Signup'
 export default function Router() {
     return (
         <BrowserRouter>
-        <Header />
+            <Header />
             <Routes>
                 <Route index element={<Home />} />
                 <Route path="/login" element={<Login />} />

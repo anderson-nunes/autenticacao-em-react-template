@@ -19,13 +19,20 @@ export const FormPost = styled.form`
     color: white;
     font-weight: 700;
     }
+
 `
 export const Input = styled.input`
     width: 40vw;
     margin-bottom: 16px;
+    outline: none;
+    background-color: #F4F0F0;
+    padding: 4px;
 `
 export const TextArea = styled.textarea`
     width: 40vw;
     height: 10vh;
-    margin: 3px;
+    margin-bottom: 1rem;
+    outline: none;
+    background-color: #F4F0F0;
+    padding: 4px;
 `

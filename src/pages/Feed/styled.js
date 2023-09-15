@@ -9,8 +9,8 @@ export const FeedContainer = styled.main`
     margin-top: 2rem;
 
     h1 {
-    font-size: 28px;
+    font-size: 38px;
     font-weight: 700;
-    padding: 10px;
+    padding: 1rem;
     }
 `

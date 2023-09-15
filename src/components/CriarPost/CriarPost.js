@@ -3,6 +3,7 @@ import { FormPost, Input, TextArea } from './styled'
 import useForms from '../../hooks/useForms'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/BASE_URL'
+import { notify, notifyError } from '../../hooks/toast'
 
 export default function CriarPost() {
 
@@ -39,10 +40,12 @@ export default function CriarPost() {
     axios.post(`${BASE_URL}/posts`, body, headers)
       .then((response) => {
         console.log(response)
+        notify()
         reload()
       })
       .catch((error) => {
         console.log(error)
+        notifyError()
       })
   }
 

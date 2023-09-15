@@ -7,9 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { irParaLogin } from "../../routes/coordinator";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { notify, notifyError } from "../../hooks/toast";
 
-import { useNotifySuccess } from "../../hooks/useNotifySuccess";
-import { useNotifyError } from "../../hooks/useNotifyError";
 
 import {
   Button,
@@ -22,31 +21,6 @@ import {
 } from "@chakra-ui/react";
 
 export default function Signup() {
-  // const notifySuccess = useNotifySuccess()
-
-  const notifySuccess = () =>
-    toast.success("Email Cadastrado!!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
-  const notifyError = () =>
-    toast.error("Email já cadastrado", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
 
   const { form, onChange } = useForms({
     email: "",
@@ -75,7 +49,7 @@ export default function Signup() {
         .then((resp) => {
           console.log("aquiiiiiiii", resp.data.token);
           localStorage.setItem("token", resp.data.token);
-          notifySuccess();
+          notify();
           irParaLogin(navigate);
         })
         .catch((err) => {

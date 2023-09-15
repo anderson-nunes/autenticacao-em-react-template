@@ -6,21 +6,15 @@ import { ContainerForm, ContainerLogin, Input } from './styled'
 import { irParaCadastro, irParaFeed, irParaLogin } from '../../routes/coordinator'
 import axios from 'axios'
 import { useProtectedPage } from '../../hooks/useProtecdPage'
-import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { notify, notifyError } from '../../hooks/toast'
 
 import {
-  // FormControl,
-  // FormLabel,
-  // FormErrorMessage,
-  // FormHelperText,
-  // Container,
   Button,
   Flex,
   FormControl,
   FormLabel,
   Heading,
-  // Input,
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -30,29 +24,6 @@ export default function Login() {
   const navigate = useNavigate()
 
   useProtectedPage()
-
-  const notify = () => toast.success('Sucesso!!', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  })
-
-  const notifyError = () => toast.error('Email não cadastrado!!', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-
-  })
 
   const { form, onChange } = useForms({
     email: "",
@@ -86,10 +57,12 @@ export default function Login() {
     <ContainerLogin>
       <ContainerForm onSubmit={enviaLogin}>
         <Flex
-          minH={'70vh'}
+          w={'full'}
+          minH={'100vh'}
           align={'center'}
           justify={'center'}
-          bg={useColorModeValue('gray.50', 'gray.800')}>
+          bg={useColorModeValue('gray.50', 'gray.800')}
+          pb={'14rem'}>
           <Stack
             spacing={4}
             w={'full'}
@@ -103,7 +76,8 @@ export default function Login() {
               Faça o seu Login
             </Heading>
             <FormControl id="email" isRequired>
-              <FormLabel>Endereço de email</FormLabel>
+              <FormLabel fontWeight={'700'}
+              >Endereço de email</FormLabel>
               <Input
                 placeholder="your-email@example.com"
                 _placeholder={{ color: 'gray.500', }}
@@ -116,7 +90,7 @@ export default function Login() {
               />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Senha</FormLabel>
+              <FormLabel fontWeight={'700'}>Senha</FormLabel>
               <Input
                 type="password"
                 id='senha'

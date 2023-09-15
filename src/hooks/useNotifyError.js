@@ -10,5 +10,4 @@ export const useNotifyError = () => toast.error('Email já cadastrado', {
   draggable: true,
   progress: undefined,
   theme: "light",
-
 })

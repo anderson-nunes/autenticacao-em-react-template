@@ -11,4 +11,7 @@ export const ContainerForm = styled.form`
 
 export const Input = styled.input`
     margin-bottom: 32px;
+    outline: none;
+    background-color: #F4F0F0;
+    padding: 4px;
 `

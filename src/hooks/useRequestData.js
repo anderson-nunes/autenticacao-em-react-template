@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../constants/BASE_URL'
 import axios from 'axios'
 
-
-
 export default function useRequestData(estadoInicial, path, headers) {
 
     const [dados, setDados] = useState(estadoInicial)
